@@ -1,0 +1,46 @@
+/* Override PixelCard bawaan menjadi kartu kaca bernuansa "piagam" (parchment) */
+.rules-card {
+  height: auto !important;
+  width: min(90vw, 560px) !important;
+  aspect-ratio: unset !important;
+  background: rgba(244, 236, 221, 0.88) !important;
+  border: 1.5px solid rgba(201, 167, 104, 0.6) !important;
+  border-radius: 1.75rem !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 2.25rem 1.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 640px) {
+  .rules-card {
+    padding: 2.75rem 2.5rem !important;
+  }
+}
+
+/* Matikan radial gradient gelap bawaan dari PixelCard.css */
+.rules-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+.rules-card > *:not(.pixel-canvas) {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+.rules-card .pixel-canvas {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .join-stagger-item,
+  .rules-card {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
